@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/vue@3"></script>
+    <title>Document</title>
+</head>
+<body>
+    
+  <div id="app">
+    <button v-on:click="advice">Click to get an advice</button>
+    <p>{{ selected_advice }}</p>
+  </div>
+
+  <script>
+      Vue.createApp({
+        data() {
+          selected_advice = ""
+          advices = ["Take time to know yourself"
+                  ,"A narrow focus brings big results"
+                  ,"Don't make assumptions"
+                  ,"Be patient and persistent"
+                  ,"In order to get, you have to give"
+                  ,"Luck comes from hard work"
+                  ,"Be your best at all times"
+                  ,"Don't try to impress everyone"
+                  ,"Don't be afraid of being afraid"
+                  ,"Listen to learn"]
+          return {
+            selected_advice
+          }
+        },
+        methods:{
+          advice(){
+            random = Math.floor(Math.random() * 10)
+            random_adv = advices[random]
+            this.selected_advice = random_adv
+          }
+        }
+      }).mount('#app')
+  </script>
+      
+</body>
+</html>
+
+
+
+
+
+
